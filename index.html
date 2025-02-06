@@ -10,14 +10,13 @@
     
     <p><strong>Bitcoin:</strong> <span id="bitcoin-price">Loading...</span> USD</p>
     <p><strong>Ethereum:</strong> <span id="ethereum-price">Loading...</span> USD</p>
-    <p><strong>Monero:</strong> <span id="monero-price">Loading...</span> USD</p>
-    <p><strong>Litecoin:</strong> <span id="litecoin-price">Loading...</span> USD</p>
+    <p><strong>Solana:</strong> <span id="solana-price">Loading...</span> USD</p>
 
     <p>Back to <a href="/home">home</a></p>
 
     <script>
         // WebSocket connection to CoinCap API
-        const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,monero,litecoin');
+        const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,solana');
 
         pricesWs.onmessage = function (msg) {
             console.log("message received");  // Debugging: Check the incoming data in the console
@@ -30,11 +29,8 @@
             if (prices.ethereum) {
                 document.getElementById("ethereum-price").textContent = parseFloat(prices.ethereum).toFixed(2);
             }
-            if (prices.monero) {
-                document.getElementById("monero-price").textContent = parseFloat(prices.monero).toFixed(2);
-            }
-            if (prices.litecoin) {
-                document.getElementById("litecoin-price").textContent = parseFloat(prices.litecoin).toFixed(2);
+            if (prices.solana) {
+                document.getElementById("solana-price").textContent = parseFloat(prices.solana).toFixed(2);
             }
         };
     </script>
